@@ -1,12 +1,12 @@
-package com.learnwithtiwari.jobsAndReviews.jobs;
+package com.learnwithtiwari.jobsAndReviewsPortal.controller;
 
+import com.learnwithtiwari.jobsAndReviewsPortal.entities.Jobs;
+import com.learnwithtiwari.jobsAndReviewsPortal.request.JobCreationRequest;
+import com.learnwithtiwari.jobsAndReviewsPortal.services.JobsService;
+import com.learnwithtiwari.jobsAndReviewsPortal.request.UpdateJobRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/jobs")
@@ -22,7 +22,7 @@ public class JobController {
 
 
     @PostMapping("/")
-    public ResponseEntity<String> createJobs(@RequestBody JobsEntity jobInput){
+    public ResponseEntity<String> createJobs(@RequestBody JobCreationRequest jobInput){
         System.out.println("reached here ----------------");
         return jobsService.createJobs(jobInput);
     }

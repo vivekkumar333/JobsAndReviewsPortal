@@ -1,13 +1,13 @@
-package com.learnwithtiwari.jobsAndReviews.jobs;
+package com.learnwithtiwari.jobsAndReviewsPortal.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import org.aspectj.weaver.AjcMemberMaker;
 
 import java.util.Objects;
 
 @Entity
-@Table(name = "Jobs")
-class JobsEntity {
+@Table(name = "Job_tbl")
+public class Jobs {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long jobId;
@@ -22,27 +22,35 @@ class JobsEntity {
 
     private String jobLocation;
 
-    public Long getJobId() {
-        return jobId;
-    }
+    @JsonIgnore
+    @ManyToOne
+    private Company company;
 
-    public JobsEntity() {}
 
-    public JobsEntity(String jobName, String jobTitle, String jobSkillSet, String jobSalary, String jobLocation) {
-        this.jobName = jobName;
-        this.jobTitle = jobTitle;
-        this.jobSkillSet = jobSkillSet;
-        this.jobSalary = jobSalary;
-        this.jobLocation = jobLocation;
-    }
 
-    public JobsEntity(Long jobId, String jobName, String jobTitle, String jobSkillSet, String jobSalary, String jobLocation) {
+    public Jobs() {}
+    public Jobs(Long jobId, String jobName, String jobTitle, String jobSkillSet, String jobSalary, String jobLocation, Company company) {
         this.jobId = jobId;
         this.jobName = jobName;
         this.jobTitle = jobTitle;
         this.jobSkillSet = jobSkillSet;
         this.jobSalary = jobSalary;
         this.jobLocation = jobLocation;
+        this.company = company;
+    }
+    public Jobs(String jobName, String jobTitle, String jobSkillSet, String jobSalary, String jobLocation, Company company) {
+        this.jobName = jobName;
+        this.jobTitle = jobTitle;
+        this.jobSkillSet = jobSkillSet;
+        this.jobSalary = jobSalary;
+        this.jobLocation = jobLocation;
+        this.company = company;
+    }
+
+
+
+    public Long getJobId() {
+        return jobId;
     }
 
     public void setJobId(Long jobId) {
@@ -89,12 +97,19 @@ class JobsEntity {
         this.jobLocation = jobLocation;
     }
 
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        JobsEntity that = (JobsEntity) o;
+        Jobs that = (Jobs) o;
         return Objects.equals(jobName, that.jobName) && Objects.equals(jobTitle, that.jobTitle) && Objects.equals(jobSkillSet, that.jobSkillSet) && Objects.equals(jobSalary, that.jobSalary) && Objects.equals(jobLocation, that.jobLocation);
     }
 

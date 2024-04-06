@@ -1,6 +1,6 @@
-package com.learnwithtiwari.jobsAndReviews.jobs;
+package com.learnwithtiwari.jobsAndReviewsPortal.request;
 
-public class UpdateJobRequest {
+public class JobCreationRequest {
 
     private String jobName;
 
@@ -12,8 +12,10 @@ public class UpdateJobRequest {
 
     private String jobLocation;
 
+    private Long companyId;
 
-    public UpdateJobRequest(String jobName, String jobTitle, String jobSkillSet, String jobSalary, String jobLocation) {
+
+    public JobCreationRequest(String jobName, String jobTitle, String jobSkillSet, String jobSalary, String jobLocation) {
         this.jobName = jobName;
         this.jobTitle = jobTitle;
         this.jobSkillSet = jobSkillSet;
@@ -59,5 +61,14 @@ public class UpdateJobRequest {
 
     public void setJobLocation(String jobLocation) {
         this.jobLocation = jobLocation;
+    }
+
+
+    public Long getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(Long companyId) {
+        this.companyId = companyId;
     }
 }

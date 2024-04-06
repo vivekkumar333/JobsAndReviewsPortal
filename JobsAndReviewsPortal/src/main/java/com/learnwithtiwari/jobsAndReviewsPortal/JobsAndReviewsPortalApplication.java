@@ -1,4 +1,4 @@
-package com.learnwithtiwari.jobsAndReviews;
+package com.learnwithtiwari.jobsAndReviewsPortal;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
