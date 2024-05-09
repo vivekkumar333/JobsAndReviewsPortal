@@ -40,7 +40,7 @@ public class ReviewsService {
         Optional<Company> savedComp= compRepo.findById(reviewReq.getCompanyId());
         Reviews savedReview = null;
         if(savedComp.isPresent()){
-            savedReview= reviewsRepo.save(new Reviews(reviewReq.getReviewTitle(),reviewReq.getReviewDescription(),savedComp.get()));
+            savedReview= reviewsRepo.save(new Reviews(reviewReq.getTitle(),reviewReq.getDescription(),reviewReq.getRatings(),savedComp.get()));
         }else{
             return new ResponseEntity<>("Company review failed to update in the database due to Company id not found in the database", HttpStatus.NOT_FOUND);
         }
@@ -61,8 +61,9 @@ public class ReviewsService {
         if(savedComp.isPresent()){
             if(savedReview.isPresent()){
                 reviewsRepo.save(new Reviews(reviewId,
-                        updateReview.getReviewTitle(),
-                        updateReview.getReviewDescription(),
+                        updateReview.getTitle(),
+                        updateReview.getDescription(),
+                        updateReview.getRatings(),
                         savedComp.get()));
 
                 return new ResponseEntity<>("Job has been updated successfully", HttpStatus.OK);

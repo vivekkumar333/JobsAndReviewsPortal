@@ -2,32 +2,28 @@ package com.learnwithtiwari.jobsAndReviewsPortal.request;
 
 public class ReviewRequest {
 
-    private String reviewTitle;
-    private String reviewDescription;
+    private String title;
+
+    private String description;
+
+    private String ratings;
+
     private Long companyId;
 
 
-    public String getReviewTitle() {
-        return reviewTitle;
+    public String getTitle() {
+        return title;
     }
 
-    public void setReviewTitle(String reviewTitle) {
-        this.reviewTitle = reviewTitle;
+    public String getDescription() {
+        return description;
     }
 
-    public String getReviewDescription() {
-        return reviewDescription;
-    }
-
-    public void setReviewDescription(String reviewDescription) {
-        this.reviewDescription = reviewDescription;
+    public String getRatings() {
+        return ratings;
     }
 
     public Long getCompanyId() {
         return companyId;
-    }
-
-    public void setCompanyId(Long companyId) {
-        this.companyId = companyId;
     }
 }

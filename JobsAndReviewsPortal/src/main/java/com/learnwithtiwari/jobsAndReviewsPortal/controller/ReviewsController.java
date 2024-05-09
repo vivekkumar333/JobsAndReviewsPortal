@@ -23,7 +23,6 @@ public class ReviewsController {
 
     @PostMapping("/")
     public ResponseEntity<String> createReview(@RequestBody ReviewRequest input){
-        System.out.println("reached here ----------------");
         return reviewsService.createReviews(input);
     }
 

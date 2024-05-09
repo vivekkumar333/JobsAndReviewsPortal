@@ -10,9 +10,11 @@ public class Reviews {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long reviewId;
 
-    private String reviewTitle;
+    private String title;
 
-    private String reviewDescription;
+    private String description;
+
+    private String ratings;
 
     @JsonIgnore
     @ManyToOne
@@ -21,16 +23,18 @@ public class Reviews {
     public Reviews() {
     }
 
-    public Reviews(String reviewTitle, String reviewDescription, Company company) {
-        this.reviewTitle = reviewTitle;
-        this.reviewDescription = reviewDescription;
+    public Reviews(Long reviewId, String title, String description, String ratings, Company company) {
+        this.reviewId = reviewId;
+        this.title = title;
+        this.description = description;
+        this.ratings = ratings;
         this.company = company;
     }
 
-    public Reviews(Long reviewId, String reviewTitle, String reviewDescription, Company company) {
-        this.reviewId = reviewId;
-        this.reviewTitle = reviewTitle;
-        this.reviewDescription = reviewDescription;
+    public Reviews(String title, String description, String ratings, Company company) {
+        this.title = title;
+        this.description = description;
+        this.ratings = ratings;
         this.company = company;
     }
 
@@ -42,20 +46,28 @@ public class Reviews {
         this.reviewId = reviewId;
     }
 
-    public String getReviewTitle() {
-        return reviewTitle;
+    public String getTitle() {
+        return title;
     }
 
-    public void setReviewTitle(String reviewTitle) {
-        this.reviewTitle = reviewTitle;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getReviewDescription() {
-        return reviewDescription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setReviewDescription(String reviewDescription) {
-        this.reviewDescription = reviewDescription;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(String ratings) {
+        this.ratings = ratings;
     }
 
     public Company getCompany() {

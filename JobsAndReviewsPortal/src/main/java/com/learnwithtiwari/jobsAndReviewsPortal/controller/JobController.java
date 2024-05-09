@@ -23,7 +23,6 @@ public class JobController {
 
     @PostMapping("/")
     public ResponseEntity<String> createJobs(@RequestBody JobCreationRequest jobInput){
-        System.out.println("reached here ----------------");
         return jobsService.createJobs(jobInput);
     }
 
